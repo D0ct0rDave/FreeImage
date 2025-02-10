@@ -5,14 +5,14 @@
 -- Set a prefix for the install action below
 local prefix = _OPTIONS["prefix"] or "./Dist"
 
------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 solution "FreeImage"
     configurations { "Debug", "Release" }
     platforms { "x32", "x64" }
 	location "build"
 
------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 project "FreeImage"
 	kind "SharedLib"
     language "C++"
@@ -95,7 +95,7 @@ project "FreeImage"
         targetdir ( "build/lib/x64/Release" )
 	filter{}
 
------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 project "FreeImageLib"
 	kind "StaticLib"
     language "C++"
@@ -176,8 +176,7 @@ project "FreeImageLib"
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )
 	filter{}
-------------------------------------------------------------------------------------------------------------------------------------------------------- ===================================================================================================================================================================
-  
+-------------------------------------------------------------------------------  
 project "FreeImagePlus"
 	kind "SharedLib"
 	language "C++"
@@ -235,7 +234,7 @@ project "FreeImagePlus"
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )
 	filter{}
------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 project "Zlib"
     kind "StaticLib"
@@ -290,7 +289,7 @@ project "Zlib"
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
     filter{}  
------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 project "OpenEXR"
     kind "StaticLib"
@@ -434,7 +433,7 @@ project "OpenEXR"
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
     filter{}
------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 project "LibTIFF4"
     kind "StaticLib"
@@ -500,7 +499,7 @@ project "LibTIFF4"
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )
 	filter{}	
------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 project "LibPNG"
     kind "StaticLib"
@@ -554,7 +553,7 @@ project "LibPNG"
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
 	filter{}
------------------------------------------------------------------------------------------------------------------------------------------------------        
+-------------------------------------------------------------------------------        
 
 project "LibOpenJpeg"
     kind "StaticLib"
@@ -612,7 +611,7 @@ project "LibOpenJpeg"
         targetdir ( "build/lib/x64/Release" )		
 	filter{}
 
------------------------------------------------------------------------------------------------------------------------------------------------------        
+-------------------------------------------------------------------------------        
 
 project "LibJPEG"
     kind "StaticLib"
@@ -678,7 +677,7 @@ project "LibJPEG"
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
     filter{}  
------------------------------------------------------------------------------------------------------------------------------------------------------        
+-------------------------------------------------------------------------------        
 
 project "LibJXR"
     kind "StaticLib"
@@ -733,7 +732,7 @@ project "LibJXR"
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
     filter{}
------------------------------------------------------------------------------------------------------------------------------------------------------        
+-------------------------------------------------------------------------------        
 
 project "LibWebP"
     kind "StaticLib"
@@ -786,7 +785,7 @@ project "LibWebP"
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
     filter{}
------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 project "LibRaw"
     kind "StaticLib"
@@ -847,7 +846,7 @@ project "LibRaw"
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )
 	filter{}
------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
         
 newaction 
 {
@@ -857,7 +856,11 @@ newaction
         -- copy files, etc. here
         os.mkdir(prefix);
         os.mkdir(prefix .. "/x32");
-        os.mkdir(prefix .. "/x64");
+		os.mkdir(prefix .. "/x64");
+		os.mkdir(prefix .. "/x32/Debug");
+		os.mkdir(prefix .. "/x32/Release");
+        os.mkdir(prefix .. "/x64/Debug");
+        os.mkdir(prefix .. "/x64/Release");
 
         -- Copy header files
         os.copyfile("Source/FreeImage.h", prefix .. "/FreeImage.h");
@@ -866,32 +869,42 @@ newaction
         -- Library files created in Dist directory
         files = os.matchfiles("build/lib/x32/Debug/*.lib");
         for k, f in pairs(files) do
-            os.copyfile(f, prefix .. "/x32/" .. path.getbasename(f) .. "_d.lib");
+            os.copyfile(f, prefix .. "/x32/Debug/" .. path.getname(f));
         end
 
         files = os.matchfiles("build/lib/x32/Release/*.lib");
         for k, f in pairs(files) do
-            os.copyfile(f, prefix .. "/x32/" .. path.getname(f));
+            os.copyfile(f, prefix .. "/x32/Release/" .. path.getname(f));
+        end
+		
+		files = os.matchfiles("build/lib/x32/Debug/*.dll");
+        for k, f in pairs(files) do
+            os.copyfile(f, prefix .. "/x32/Debug/" .. path.getname(f));
         end
 
+        files = os.matchfiles("build/lib/x32/Release/*.dll");
+        for k, f in pairs(files) do
+            os.copyfile(f, prefix .. "/x32/Release/" .. path.getname(f));
+        end  
+		
         files = os.matchfiles("build/lib/x64/Debug/*.lib");
         for k, f in pairs(files) do
-            os.copyfile(f, prefix .. "/x64/" .. path.getbasename(f) .. "_d.lib");
+            os.copyfile(f, prefix .. "/x64/Debug/" .. path.getname(f));
         end
 
         files = os.matchfiles("build/lib/x64/Release/*.lib");
         for k, f in pairs(files) do
-            os.copyfile(f, prefix .. "/x64/" .. path.getname(f));
+            os.copyfile(f, prefix .. "/x64/Release/" .. path.getname(f));
         end    
 
 		files = os.matchfiles("build/lib/x64/Debug/*.dll");
         for k, f in pairs(files) do
-            os.copyfile(f, prefix .. "/x64/" .. path.getbasename(f) .. "_d.dll");
+            os.copyfile(f, prefix .. "/x64/Debug/" .. path.getname(f));
         end
 
         files = os.matchfiles("build/lib/x64/Release/*.dll");
         for k, f in pairs(files) do
-            os.copyfile(f, prefix .. "/x64/" .. path.getname(f));
+            os.copyfile(f, prefix .. "/x64/Release/" .. path.getname(f));
         end    		
   end
 }
