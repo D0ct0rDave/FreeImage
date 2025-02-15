@@ -9,7 +9,7 @@ local prefix = _OPTIONS["prefix"] or "./Dist"
 
 solution "FreeImage"
     configurations { "Debug", "Release" }
-    platforms { "x32", "x64" }
+    platforms { "Win32", "x64" }
 	location "build"
 
 -------------------------------------------------------------------------------
@@ -82,14 +82,14 @@ project "FreeImage"
         optimize "On" -- Enable optimizations      	  
         targetname "FreeImage"
 
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
         
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
     
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )
@@ -164,14 +164,14 @@ project "FreeImageLib"
         optimize "On" -- Enable optimizations      	  
         targetname "FreeImageLib"
 
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
 
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
 
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )
@@ -222,14 +222,14 @@ project "FreeImagePlus"
         targetname "FreeImagePlus"
 	filter{}
 
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
 
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
 
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )
@@ -277,14 +277,14 @@ project "Zlib"
         targetname "Zlib"
 	filter{}      
 	
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
         
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
     
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
@@ -421,14 +421,14 @@ project "OpenEXR"
         targetname "OpenEXR"
 	filter{}
 	
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
         
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
     
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
@@ -487,14 +487,14 @@ project "LibTIFF4"
         targetname "libtiff"
 	filter{}
 
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
         
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
     
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )
@@ -541,14 +541,14 @@ project "LibPNG"
         targetname "LibPNG"
 	filter{}
 	
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
         
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
     
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
@@ -598,14 +598,14 @@ project "LibOpenJpeg"
         targetname "LibOpenJpeg"
 	filter{}
 	
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
         
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
     
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
@@ -665,14 +665,14 @@ project "LibJPEG"
         targetname "LibJPEG"
 	filter{}
 	
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
         
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
     
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
@@ -720,14 +720,14 @@ project "LibJXR"
         targetname "LibJXR"
 	filter{}
 	
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
         
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
     
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
@@ -773,14 +773,14 @@ project "LibWebP"
         targetname "LibWebP"
 	filter{}
 	
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
         
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
     
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )		
@@ -834,14 +834,14 @@ project "LibRaw"
         targetname "LibRaw"
     filter{}
 	
-    filter{"configurations:Debug", "architecture:x32" }
-        targetdir ( "build/lib/x32/Debug" )
+    filter{"configurations:Debug", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Debug" )
 
     filter{"configurations:Debug", "architecture:x64" }
         targetdir ( "build/lib/x64/Debug" )
         
-    filter{"configurations:Release", "architecture:x32" }
-        targetdir ( "build/lib/x32/Release" )
+    filter{"configurations:Release", "architecture:Win32" }
+        targetdir ( "build/lib/Win32/Release" )
     
     filter{"configurations:Release", "architecture:x64" }
         targetdir ( "build/lib/x64/Release" )
@@ -855,10 +855,10 @@ newaction
     execute = function ()
         -- copy files, etc. here
         os.mkdir(prefix);
-        os.mkdir(prefix .. "/x32");
+        os.mkdir(prefix .. "/Win32");
 		os.mkdir(prefix .. "/x64");
-		os.mkdir(prefix .. "/x32/Debug");
-		os.mkdir(prefix .. "/x32/Release");
+		os.mkdir(prefix .. "/Win32/Debug");
+		os.mkdir(prefix .. "/Win32/Release");
         os.mkdir(prefix .. "/x64/Debug");
         os.mkdir(prefix .. "/x64/Release");
 
@@ -867,24 +867,24 @@ newaction
         os.copyfile("Wrapper/FreeImagePlus/FreeImagePlus.h", prefix .. "/FreeImagePlus.h");
       
         -- Library files created in Dist directory
-        files = os.matchfiles("build/lib/x32/Debug/*.lib");
+        files = os.matchfiles("build/lib/Win32/Debug/*.lib");
         for k, f in pairs(files) do
-            os.copyfile(f, prefix .. "/x32/Debug/" .. path.getname(f));
+            os.copyfile(f, prefix .. "/Win32/Debug/" .. path.getname(f));
         end
 
-        files = os.matchfiles("build/lib/x32/Release/*.lib");
+        files = os.matchfiles("build/lib/Win32/Release/*.lib");
         for k, f in pairs(files) do
-            os.copyfile(f, prefix .. "/x32/Release/" .. path.getname(f));
+            os.copyfile(f, prefix .. "/Win32/Release/" .. path.getname(f));
         end
 		
-		files = os.matchfiles("build/lib/x32/Debug/*.dll");
+		files = os.matchfiles("build/lib/Win32/Debug/*.dll");
         for k, f in pairs(files) do
-            os.copyfile(f, prefix .. "/x32/Debug/" .. path.getname(f));
+            os.copyfile(f, prefix .. "/Win32/Debug/" .. path.getname(f));
         end
 
-        files = os.matchfiles("build/lib/x32/Release/*.dll");
+        files = os.matchfiles("build/lib/Win32/Release/*.dll");
         for k, f in pairs(files) do
-            os.copyfile(f, prefix .. "/x32/Release/" .. path.getname(f));
+            os.copyfile(f, prefix .. "/Win32/Release/" .. path.getname(f));
         end  
 		
         files = os.matchfiles("build/lib/x64/Debug/*.lib");
