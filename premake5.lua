@@ -17,6 +17,8 @@ project "FreeImage"
 	kind "SharedLib"
     language "C++"
 	cppdialect "C++11"
+	targetdir("$(ProjectDir)../lib/%{cfg.platform}/%{cfg.buildcfg}")
+    objdir("$(ProjectDir)../obj/%{cfg.platform}/%{cfg.buildcfg}")
 	characterset("ASCII")
 
 	includedirs
